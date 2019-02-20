@@ -209,7 +209,7 @@ $(document).ready(function() {
     } else if (playerActive.health <= 0) {
       $(".player").html("<h2>You lose! Start a new game. </h2>");
     } else if (enemyActive.health <= 0 && enemyPicked === false) {
-      $(".characterList").html("<h2>You win!</h2>");
+      $(".characters").html("<h2>You win!</h2>");
     }
   });
 
