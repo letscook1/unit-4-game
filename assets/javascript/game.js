@@ -1,28 +1,14 @@
 $(document).ready(function() {
-  // Code out HTML View for Game
-  //4 Clickable Character Boxes
-  // Each has Name, image, and stats
-  //Space for player character to appear
-  //Space for enemy to appear
-
-  //Create Variables
-  // Characters
-  // array of objects
-  // each has different properties of health, attack power, counter attack power
   var characters = [];
   var playerPicked;
   var enemyPicked;
 
   var i = 0;
 
-  // Active Characters
   var playerActive;
   var playerBaseAttack;
   var enemyActive;
 
-  // Start new game function
-  // Sets all characters to be able to be picked by player with reset stats
-  // Once picked, player character gets put into player area while the rest go into Enemies area
   function startGame() {
     $(".player").empty();
     $(".enemy").empty();
@@ -95,20 +81,15 @@ $(document).ready(function() {
     i = 0;
 
     $(".pickCharacter").html("<h3>Pick A Player!</h3>");
-    console.log(characters);
+
     playerPicked = false;
     enemyPicked = true;
   }
 
   startGame();
 
-  // If there are enemies
-  // Player picks Enemy
-  // Enemies stats load
-
   $(".characterList").on("click", ".character", function() {
     var p;
-    console.log("click");
 
     if (playerPicked === false && enemyPicked) {
       $(".pickCharacter").html("<h3>Pick An Enemy!</h3>");
@@ -164,22 +145,6 @@ $(document).ready(function() {
     }
   });
 
-  // playerActive & enemyActive
-
-  // Player attacks enemy
-  // Enemy loses health (health - attack)
-  // Enemy counterattacks
-  //  Increase player attack stat by base attack power
-
-  // If player health <= 0
-  // End game
-
-  // If enemy health <= 0
-  // remove enemy from list of enemies
-  // If there are more enemies, repeat pick
-
-  // If no enemies left, player wins and restart game
-
   $(".attack").on("click", function() {
     if (enemyActive.health <= 0) {
       $(".enemy").html("<h2>Enemy vanquished, pick a new battle</h2>");
@@ -209,7 +174,7 @@ $(document).ready(function() {
     } else if (playerActive.health <= 0) {
       $(".player").html("<h2>You lose! Start a new game. </h2>");
     } else if (enemyActive.health <= 0 && enemyPicked === false) {
-      $(".characters").html("<h2>You win!</h2>");
+      $(".characterList").html("<h2>You win!</h2>");
     }
   });
 

@@ -34,6 +34,19 @@ h1.title {
   padding: 10px;
 }
 
-.characters .pic {
+.characterList .pic {
   max-width: 80px;
+}
+
+#mainfooter {
+  clear: both;
+  background-color: #666666;
+  color: #ffffff;
+  border-top: solid #4aaaa5;
+  box-sizing: border-box;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 4;
 }
